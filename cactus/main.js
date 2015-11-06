@@ -38,7 +38,7 @@ var gameOverScore; //Tela de game-over
 var multiplier; //Tela de game-over
 
 //Audio
-var sound = new Audio("music/CUCARACHA.mp3");
+var sound = new Audio("music/Peppy-Pepe.mp3");
 
 //Player e inimigos
 var enemiesArray = new Array();
