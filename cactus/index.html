@@ -3,19 +3,27 @@
 	<style>
 		#canvas 
 		{
-			padding-left: 0;
-			padding-right: 0;
-			padding-top: 10;
+			padding-left:0;
+			padding-right:0;
+			padding-top:25;
+			padding-bottom:0;
+			margin-top: 0;
+			margin-bottom: 0;
 			margin-left: auto;
 			margin-right: auto;
 			display: block;
-			width: 1600px;
-			height: 800px;
+			width: 1920;
+			height: 1080;
 			
 		}
 		h1.Headerprincipal
 		{
 			text-align: center;
+		}
+		@font-face
+		{
+			font-family: CactusSandwich;
+			src: url(font/CactusSandwichFill.ttf);
 		}
 	</style>
 
@@ -23,6 +31,7 @@
 		
 		<title> Cactus Nightmare </title>
 		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script type="text/javascript" src="Player.js"></script>
 		<script type="text/javascript" src="Enemy.js"></script>
 		<script type="text/javascript" src="main.js"></script>
@@ -34,7 +43,7 @@
 	
 		<div class="inner">
 		
-			<canvas id="canvas" width=1600 height=800>
+			<canvas id="canvas" width=1920 height=1080>
 				
 			</canvas>
 			
