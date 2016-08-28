@@ -1,52 +1,19 @@
 <!DOCTYPE hyml>
 <html>
-	<style>
-		#canvas
-		{
-			padding-left:0;
-			padding-right:0;
-			padding-top:25;
-			padding-bottom:0;
-			margin-top: 0;
-			margin-bottom: 0;
-			margin-left: auto;
-			margin-right: auto;
-			display: block;
-			width: 1920;
-			height: 1080;
-		}
-		h1.Headerprincipal
-		{
-			text-align: center;
-		}
-		@font-face
-		{
-			font-family: CactusSandwich;
-			src: url(font/CactusSandwichFill.ttf);
-		}
-	</style>
-
 	<head>
+		<title>Cactus Nightmare</title>
+		<meta charset="UTF-8"/>
 
-		<title> Cactus Nightmare 3.0 </title>
-
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script type="text/javascript" src="Player.js"></script>
-		<script type="text/javascript" src="Enemy.js"></script>
-		<script type="text/javascript" src="main.js"></script>
-
+    	<script src="js/phaser.min.js" type="text/javascript"></script>
+    	<script src="js/menu.js" type="text/javascript"></script>
+    	<script src="js/main.js" type="text/javascript"></script>
+			<script src="js/player.js" type="text/javascript"></script>
+			<script src="js/enemy.js" type="text/javascript"></script>
+		<script src="js/gameOver.js" type="text/javascript"></script>
+		<script src="js/boot.js" type="text/javascript"></script>			
+    	
+    	<link href="css/style.css" rel="stylesheet">
 	</head>
 
-	<body onLoad="init()">
-
-		<div class="inner">
-
-			<canvas id="canvas" width=1920 height=1080>
-
-			</canvas>
-
-		</div>
-
-	</body>
-
+	<body></body>
 </html>
