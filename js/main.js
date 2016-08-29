@@ -9,9 +9,8 @@ var main = function()
 	this.addEnemyFlag = true;			//controls if an enemy may be added or will be added in addEnemy() method
 	this.cursors;						//keyboard input
 	this.period;						//pediod of rotation based on time
-	this.score = 0;
-	this.scoreText;
-	this.collision = "false";
+	this.score = 0;						//player's score
+	this.scoreText;						//text object
 
 	this.preload = function() 
 	{
@@ -50,19 +49,16 @@ var main = function()
     	//starts loops, enemy movement and addition of new enemies
     	game.time.events.loop(2000, this.updateEnemyRadius, this);
     	this.enemyDelay = game.time.events.loop(5000, this.addEnemy, this);
+    	game.time.events.loop(10, this.updateScore, this);
     	
     	//adds the first enemy to the screen
 		this.addEnemy();
-		
     }
 
 	this.update = function() 
 	{
 		//keeps moon on top
 		game.world.bringToTop(this.moon);
-
-		this.score += 0.1 * this.enemies.length;
-		this.scoreText.text = "Score: " + Math.floor(this.score);
 
 		//increasing value for the object rotation
 		this.period = game.time.now * 0.001;
@@ -92,6 +88,13 @@ var main = function()
 	    //after 250ms starts to check for overlap between the player and the enemies
 	    //without this delay it always says there is an overlap in the beginning of the game
 	    game.time.events.add(250, this.checkOverlap, this);
+	}
+
+	//updates score, controled by a loop
+	this.updateScore = function()
+	{
+		this.score += 0.5 * this.enemies.length;
+		this.scoreText.text = "Score: " + Math.floor(this.score) + " x" + this.enemies.length;
 	}
 
 	//changes the target (or not) of every enemy
