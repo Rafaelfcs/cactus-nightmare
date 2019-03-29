@@ -1,14 +1,18 @@
 var menu = function()
 {
 	this.enterKey;
+	this.enterPressed;
 
     this.preload = function()
     {
-        game.load.image('cactus2', 'assets/images/cactus2-crop.png');
+		game.load.image('cactus2', 'assets/images/cactus2-crop.png');
+		game.load.audio('pepe', ['assets/music/peppy-pepe.mp3', 'assets/music/peppy-pepe.ogg'])
     }
 
     this.create = function()
     {
+		this.enterPressed = false;
+
         var cactus = game.add.sprite(game.world.centerX, game.world.centerY, 'cactus2');
 		cactus.anchor.setTo(0.5);
 
@@ -23,9 +27,14 @@ var menu = function()
 
     this.update = function()
     {
-        if (this.enterKey.isDown)
-        {
-            game.state.start("main");
-        }
+		if (this.enterKey.isDown)
+		{
+			this.enterPressed = true;
+		}
+
+		// decode audio before going to main
+		if (game.cache.isSoundDecoded('pepe') && this.enterPressed)  {
+			game.state.start("main");
+		}
     }
 }

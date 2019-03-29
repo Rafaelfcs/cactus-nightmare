@@ -10,7 +10,8 @@ var main = function()
 	this.cursors;						//keyboard input
 	this.period;						//pediod of rotation based on time
 	this.score;						//player's score
-	this.scoreText;						//text object
+    this.scoreText;						//text object
+    this.music;                     //music object
 
 	this.preload = function()
 	{
@@ -19,7 +20,7 @@ var main = function()
 		game.load.image('moon', 'assets/images/moon.png');
 		game.load.image('astronaut', 'assets/images/astronaut-crop.png');
 		game.load.image('cactus1', 'assets/images/cactus1-crop.png');
-		game.load.image('cactus2', 'assets/images/cactus2-crop.png');
+        game.load.image('cactus2', 'assets/images/cactus2-crop.png');
 	}
 
 	this.create = function()
@@ -32,6 +33,10 @@ var main = function()
 
         //initializes score
         this.score = 0;
+
+        // add music
+        this.music = game.add.audio('pepe', 1, true);
+        this.music.play()
 
 		//adds moon to the center of the world
 		this.moon = game.add.sprite(game.world.centerX, game.world.centerY, 'moon');
@@ -168,6 +173,7 @@ var main = function()
         //save score and cactus number
         globalScore = this.score;
         globalCactusNumber = this.enemies.length;
+        this.music.stop();
 
 		game.state.start("gameOver");
 	}
